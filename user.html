@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value=""><br>
+  <p id="storageValue">First name is Empty</p>
+  <input type="button" onclick=setVale() value="Set">
+  <input type="button" onclick=getVale() value="Get">
+  <input type="button" onclick=removeVale() value="Remove">
+</body>
+<script>
+      function setVale() {
+        debugger
+      var fname = document.getElementById("fname").value;
+      var setFname = localStorage.setItem("name", fname);
+      document.getElementById('storageValue').innerText = "User value has been saved successfully";
+     
+    }
+    function getVale() {
+      var fname = document.getElementById("fname").value;
+      var getFname = localStorage.getItem("name");
+      let res = (localStorage.getItem("name")) ?  document.getElementById('storageValue').innerText = `User value is ${getFname}` :
+      document.getElementById('storageValue').innerText = `No data found`;
+     // document.getElementById('storageValue').innerText = `User value is ${getFname}`;
+      
+    }
+    function removeVale() {
+      var fname = document.getElementById("fname").value;
+      var removename = localStorage.removeItem("name");
+      document.getElementById('storageValue').innerText = "User value has been removed successfully";
+     
+    }
+
+  
+</script>
+</html>
+

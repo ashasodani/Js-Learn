@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p>The counter is</p>
+  <p id="storedValue">0</p>
+  <input type="button" onclick=incVale() value="Increment">
+  <input type="button" onclick=decVale() value="Decrement">
+</body>
+<script>
+   debugger;
+    var k = localStorage.getItem("counter");
+    if(k === null){
+           
+        document.getElementById('storedValue').innerText = `no data found`;
+
+
+        } else {
+            document.getElementById('storedValue').innerText = `${k}`;
+        }
+
+      function incVale() {
+        
+       var k = localStorage.getItem("counter");
+        if(k === null){
+            k = 0;
+            localStorage.setItem("counter", k);
+            document.getElementById('storedValue').innerText = `${k}`;
+
+        } else {
+            k = parseInt(k)+1;
+            localStorage.setItem("counter", k);
+            document.getElementById('storedValue').innerText = `data found ${k}`;
+        }
+      
+      var getcount = localStorage.getItem("counter");
+      document.getElementById('storedValue').innerText = `${k}`;
+     
+    }
+  
+    function decVale() {
+        //var removename = localStorage.removeItem("counter");
+        var getcount = localStorage.getItem("counter");
+        if(getcount>=1){
+           var k = k--;
+            var getcount = localStorage.setItem("counter",k);
+            document.getElementById('storedValue').innerText = `${k}`;
+        } else {
+            var removename = localStorage.removeItem("counter");
+            document.getElementById('storedValue').innerText = "removed";
+        }
+      
+    
+     
+    }
+
+  
+</script>
+</html>
+
